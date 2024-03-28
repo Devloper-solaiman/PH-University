@@ -8,9 +8,10 @@ import {
 } from "react-hook-form";
 
 type TFormConfig = {
-  defaultvalues?: Record<string, any>;
+  defaultValues?: Record<string, any>;
   resolver?: any;
 };
+
 type TFormProps = {
   onSubmit: SubmitHandler<FieldValues>;
   children: ReactNode;
@@ -19,24 +20,29 @@ type TFormProps = {
 const PHForm = ({
   onSubmit,
   children,
-  defaultvalues,
+  defaultValues,
   resolver,
 }: TFormProps) => {
   const formConfig: TFormConfig = {};
 
-  if (defaultvalues) {
-    formConfig["defaultvalues"] = defaultvalues;
+  if (defaultValues) {
+    formConfig["defaultValues"] = defaultValues;
   }
+
   if (resolver) {
     formConfig["resolver"] = resolver;
   }
 
   const methods = useForm(formConfig);
-  console.log(methods);
+
+  const submit: SubmitHandler<FieldValues> = (data) => {
+    onSubmit(data);
+    methods.reset();
+  };
 
   return (
     <FormProvider {...methods}>
-      <Form layout="vertical" onFinish={methods.handleSubmit(onSubmit)}>
+      <Form layout="vertical" onFinish={methods.handleSubmit(submit)}>
         {children}
       </Form>
     </FormProvider>
