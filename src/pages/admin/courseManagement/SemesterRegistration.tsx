@@ -1,4 +1,4 @@
-import { Button, Col, Flex } from "antd";
+import { Button, Col, Row } from "antd";
 import PHForm from "../../../components/form/PHForm";
 import PHSelect from "../../../components/form/PHSclect";
 import PHDatePicker from "../../../components/form/PHDatePicker";
@@ -46,29 +46,43 @@ const SemesterRegistration = () => {
   };
 
   return (
-    <Flex justify="center" align="center">
-      <Col span={6}>
+    <Row>
+      <Col span={24}>
         <PHForm onSubmit={onSubmit}>
-          <PHSelect
-            label="Academic Semester"
-            name="academicSemester"
-            options={academicSemesterOptions}
-          />
+          <Row gutter={8}>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHSelect
+                label="Academic Semester"
+                name="academicSemester"
+                options={academicSemesterOptions}
+              />
+            </Col>
 
-          <PHSelect
-            name="status"
-            label="Status"
-            options={semesterStatusOptions}
-          />
-          <PHDatePicker name="startDate" label="Start Date" />
-          <PHDatePicker name="endDate" label="End Date" />
-          <PHInput type="text" name="minCredit" label="Min Credit" />
-          <PHInput type="text" name="maxCredit" label="Max Credit" />
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHSelect
+                name="status"
+                label="Status"
+                options={semesterStatusOptions}
+              />
+            </Col>
 
-          <Button htmlType="submit">Submit</Button>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHDatePicker name="startDate" label="Start Date" />
+            </Col>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHDatePicker name="endDate" label="End Date" />
+            </Col>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHInput type="text" name="minCredit" label="Min Credit" />
+            </Col>
+            <Col span={24} md={{ span: 12 }} lg={{ span: 8 }}>
+              <PHInput type="text" name="maxCredit" label="Max Credit" />
+            </Col>
+            <Button htmlType="submit">Submit</Button>
+          </Row>
         </PHForm>
       </Col>
-    </Flex>
+    </Row>
   );
 };
 
