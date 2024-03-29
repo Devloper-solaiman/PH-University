@@ -16,6 +16,8 @@ export type TMeta = {
     totalPage: number;
 };
 
+
+
 export type TResponse<T> = {
     data?: T;
     error?: TError;

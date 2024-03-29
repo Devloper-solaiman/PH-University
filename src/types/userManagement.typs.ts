@@ -1,7 +1,5 @@
 import { TAcademicDepartment, TAcademicFaculty, TAcademicSemester } from "./academicManagement.typs";
 
-
-
 export type TUser = {
     _id: string;
     id: string;
