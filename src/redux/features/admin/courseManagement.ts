@@ -20,7 +20,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                     params: params,
                 };
             },
-            // providesTags: ['semester'],
+            providesTags: ['semester'],
             transformResponse: (response: TResponseRedux<TSemester[]>) => {
                 return {
                     data: response.data,
@@ -34,7 +34,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body: data,
             }),
-            // invalidatesTags: ['semester'],
+            invalidatesTags: ['semester'],
         }),
         updateRegisteredSemester: builder.mutation({
             query: (args) => ({
@@ -42,7 +42,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                 method: 'PATCH',
                 body: args.data,
             }),
-            // invalidatesTags: ['semester'],
+            invalidatesTags: ['semester'],
         }),
         getAllCourses: builder.query({
             query: (args) => {
@@ -60,7 +60,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                     params: params,
                 };
             },
-            // providesTags: ['courses'],
+            providesTags: ['courses'],
             transformResponse: (response: TResponseRedux<TCourse[]>) => {
                 return {
                     data: response.data,
@@ -74,7 +74,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body: data,
             }),
-            // invalidatesTags: ['courses'],
+            invalidatesTags: ['courses'],
         }),
         addFaculties: builder.mutation({
             query: (args) => ({
@@ -82,7 +82,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                 method: 'PUT',
                 body: args.data,
             }),
-            // invalidatesTags: ['courses'],
+            invalidatesTags: ['courses'],
         }),
         getCourseFaculties: builder.query({
             query: (id) => {
@@ -104,7 +104,7 @@ const courseManagementApi = baseApi.injectEndpoints({
                 method: 'POST',
                 body: data,
             }),
-            // invalidatesTags: ['courses'],
+            invalidatesTags: ['courses'],
         }),
     }),
 });
